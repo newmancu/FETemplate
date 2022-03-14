@@ -9,14 +9,21 @@
   "author": "Denis King",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^2.27.8",
+    "browserslistrc": "^1.0.0",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-file-include": "^2.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "markdown": "^0.5.0",
     "sass": "^1.49.9"
   },
   "dependencies": {
     "gulp-sass": "^5.1.0"
-  }
+  },
+  "browserslist": [
+    "last 5 version"
+  ]
 }
