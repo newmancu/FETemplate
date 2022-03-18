@@ -92,7 +92,10 @@ function browReload(next) {
 }
 
 function watchSass() {
-    gulp.watch("./src/" + STYLE_EXT.slice(1) + "/**/*" + STYLE_EXT, sassCompiler)
+    gulp.watch([
+        "./src/" + STYLE_EXT.slice(1) + "/**/*" + STYLE_EXT,
+        "./src/**/*" + STYLE_EXT,
+    ], sassCompiler)
 }
 
 function wathBrow() {
@@ -100,7 +103,10 @@ function wathBrow() {
 }
 
 function watchLayoutInclude() {
-    gulp.watch('./src/*' + LAYOUT_EXT, layoutInclude)
+    gulp.watch([
+        // './src/*' + LAYOUT_EXT,
+        './src/**/*' + LAYOUT_EXT
+    ], layoutInclude)
 }
 
 function makeBuild(next) {

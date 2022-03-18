@@ -8,7 +8,7 @@
   - [x] gulp build
 - [ ] Добавить паттерны
   - [ ] Slider
-  - [ ] NavBar
+  - [x] NavBar
   - [ ] Accordion
   - [ ] Tabs
   - [ ] Forms
@@ -25,6 +25,7 @@
 - [x] Добавить правила формирования имен классам
 - [x] Возможность выбора в использовании sass или scss
 - [x] Возможность выбора в использовании html или pug
+- [ ] Добавить scss/sass colorschemas
 
 ## Structure example
 ![Structure tree](./exmaple.png "Structure")
