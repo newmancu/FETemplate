@@ -1,0 +1,82 @@
+@use 'sass:math'
+@use 'sass:color'
+
+$accordionTitleH: 40px
+$accordionContentH: 30px
+$titleColor: blue
+$borderColor: #333
+$accordionBorder: 1px solid $borderColor
+
+.accordion
+  list-style: none
+  display: flex
+  flex-direction: column
+  justify-content: baseline
+  align-items: baseline
+  width: 300px
+
+.accordion__container
+  display: flex
+  width: 100%
+  flex-direction: column
+  justify-content: baseline
+  align-items: baseline
+  border: $accordionBorder
+  border-bottom: none
+
+  &:last-child
+    border: $accordionBorder
+
+.accordion__title
+  position: relative
+  width: 100%
+  height: $accordionTitleH
+  display: flex
+  align-items: center
+  padding: 0 10px
+  background-color: lighten($borderColor, 20%)
+
+  &:hover
+    background-color: lighten($borderColor, 10%)
+
+  h3
+    color: $titleColor
+
+  &::after, &::before
+    content: ''
+    position: absolute
+    background-color: $titleColor
+    width: 10px
+    height: 3px
+    right: 10px
+    bottom: math.div($accordionTitleH,2) - 3px
+    transition: all ease-out .3s
+
+  &::after
+    transform: rotate(90deg)
+  
+.accordion__content
+  width: 100%
+  overflow: hidden
+  transition: all ease-out .2s
+  max-height: 0
+  height: 0
+  p
+    color: grey
+
+.accordion__container.active
+  .accordion__title
+    background-color: darken($borderColor, 20%)
+  
+  .accordion__title::after, .accordion__title::before
+    transition: all ease-out .3s
+    transform: rotate(180deg)
+  
+  .accordion__title::before
+    opacity: 0
+
+  .accordion__content
+    transition: all ease-out .2s
+    height: $accordionContentH
+    max-height: $accordionContentH * 5
+

@@ -9,8 +9,8 @@
 - [ ] Добавить паттерны
   - [ ] Slider
   - [x] NavBar
-  - [ ] Accordion
-  - [ ] Tabs
+  - [x] Accordion
+  - [x] Tabs
   - [ ] Forms
     - [ ] Radio
     - [ ] Checkbox
