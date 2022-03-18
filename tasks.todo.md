@@ -23,6 +23,8 @@
     - [ ] 3 columns
 - [x] Добавить media breakpoints
 - [x] Добавить правила формирования имен классам
+- [x] Возможность выбора в использовании sass или scss
+- [x] Возможность выбора в использовании html или pug
 
 ## Structure example
 ![Structure tree](./exmaple.png "Structure")

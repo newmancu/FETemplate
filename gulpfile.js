@@ -9,28 +9,36 @@ const fileinclude = require('gulp-file-include')
 const markdown = require('markdown')
 const path = require('path')
 const del = require('del')
+const pug = require('gulp-pug')
 
-let DEBUG = true
+const IS_PUG = true
+const IS_SASS = true
 const BUILD_FOLDER = './build'
 
 const DEBUG_ROOT = path.join(BUILD_FOLDER, '/debug')
 const RELEASE_ROOT = path.join(BUILD_FOLDER, '/release')
 
+const LAYOUT_EXT = IS_PUG ? '.pug' : '.html'
+const STYLE_EXT = IS_SASS ? '.sass' : '.scss' 
+
 let CUR_ROOT = DEBUG_ROOT
 
-function htmlInclude(next) {
-    gulp.src('./src/*.html')
+function layoutInclude(next) {
+    gulp.src('./src/*' + LAYOUT_EXT)
         .pipe(fileinclude({
             filters: {
                 markdown: markdown.parse
             }
+        }))
+        .pipe(pug({
+
         }))
         .pipe(gulp.dest(CUR_ROOT))
     next()
 }
 
 function sassCompiler(next) {
-    gulp.src('./src/scss/style.scss')
+    gulp.src('./src/' + STYLE_EXT.slice(1) + '/style' + STYLE_EXT)
         .pipe(srcmaps.init())
         .pipe(sass({
             errLogToConsole: true,
@@ -49,7 +57,7 @@ function sassCompiler(next) {
 }
 
 function sassCompilerCompresed(next) {
-    gulp.src('./src/scss/style.scss')
+    gulp.src('./src/' + STYLE_EXT.slice(1) + '/style' + STYLE_EXT)
         .pipe(srcmaps.init())
         .pipe(sass({
             errLogToConsole: true,
@@ -84,21 +92,20 @@ function browReload(next) {
 }
 
 function watchSass() {
-    gulp.watch("./src/scss/**/*.scss", sassCompiler)
+    gulp.watch("./src/" + STYLE_EXT.slice(1) + "/**/*" + STYLE_EXT, sassCompiler)
 }
 
 function wathBrow() {
     gulp.watch('./src/**/*', browReload)
 }
 
-function watchInclude() {
-    gulp.watch('./src/*.html', htmlInclude)
+function watchLayoutInclude() {
+    gulp.watch('./src/*' + LAYOUT_EXT, layoutInclude)
 }
 
 function makeBuild(next) {
-    DEBUG = false
     CUR_ROOT = RELEASE_ROOT
-    gulp.series(htmlInclude,sassCompilerCompresed)()
+    gulp.series(layoutInclude,sassCompilerCompresed)()
     next()
 }
 
@@ -108,11 +115,11 @@ gulp.task('clean', () => {
 gulp.task('build', makeBuild)
 gulp.task('default', gulp.series(
     browInit,
-    htmlInclude,
+    layoutInclude,
     sassCompiler,
     gulp.parallel(
         watchSass,
-        watchInclude,
+        watchLayoutInclude,
         wathBrow
         )
     ))
