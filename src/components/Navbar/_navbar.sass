@@ -2,22 +2,37 @@ $nb_h: 50px
 $logo_fs: 1.8rem
 $item_fs: 1.2rem
 $item_gup: 50px
+
   
 header
   background-color: rgb(166, 255, 166)
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.514)
+  transition: top ease-out 0.3s
 
+.sticky
+  transition: top ease-out 0.3s
+  position: fixed
+  top: 0
+  width: 100%
 
-.navbar__container
-  @media ( max-width: $breakpoint768)
-    min-width: 600px
+// .scroll-hide
+//   transition: top ease-out 0.3s
+//   position: fixed
+//   width: 100%
+//   top: -$nb_h
+
+// .scroll-show
+//   transition: top ease-out 0.3s
+//   position: fixed
+//   width: 100%
+//   top: 0
     
 
 .navbar 
   display: flex
   justify-content: space-between
   align-items: center
-  height: 50px
+  height: $nb_h
 
   ul
     text-decoration: none
@@ -43,4 +58,3 @@ header
 
   &::last-child
     margin-left: 0
-

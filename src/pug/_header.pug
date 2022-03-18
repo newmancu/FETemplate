@@ -1,4 +1,8 @@
-header 
-  .container.navbar__container
+header#header
+  .container
     //- NavBar
-    include ../components/Navbar/_navbar.pug
+    nav.navbar
+      a.navbar__logo.navbar__logo-link(href="#") Title
+
+      include ../components/Burger/_burger.pug
+

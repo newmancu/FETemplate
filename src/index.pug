@@ -5,7 +5,12 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title pug index file
     link(rel="stylesheet", href="./css/style.css")
-  body 
+  body(style="height:200vh;") 
     //- Header
     include ./pug/_header.pug
     h1 Testing pug and gulp
+
+  script 
+    include ./components/Navbar/_navbar.js
+    include ./components/Burger/_burger.js
+    

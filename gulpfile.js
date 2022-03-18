@@ -103,10 +103,13 @@ function wathBrow() {
 }
 
 function watchLayoutInclude() {
-    gulp.watch([
+    gulp.watch(
         // './src/*' + LAYOUT_EXT,
         './src/**/*' + LAYOUT_EXT
-    ], layoutInclude)
+        , layoutInclude)
+    gulp.watch(
+        './src/**/*.js', 
+        layoutInclude)
 }
 
 function makeBuild(next) {

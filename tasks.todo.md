@@ -16,7 +16,7 @@
     - [ ] Checkbox
   - [ ] Smooth Scroll
   - [ ] modal
-  - [ ] Burger
+  - [x] Burger
   - [ ] Section
     - [ ] 1 column
     - [ ] 2 columns
