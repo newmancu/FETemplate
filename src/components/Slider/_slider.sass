@@ -1,0 +1,65 @@
+$sliderW: 400px
+$sliderH: 200px
+
+
+// .slider
+
+.slider__content
+  width: $sliderW
+  height: $sliderH
+  overflow: clip
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  list-style: none
+
+.slider__item
+  display: block
+  width: 100%
+  height: 100%
+  align-items: center
+  justify-content: center
+  background: radial-gradient(54.73% 48.05% at 50% 50%, #FFE1E1 7.81%, #4382E0 54.69%, #C960F7 76.56%, #FFFFFF 90.63%, #B7EDD3 100%) 
+  display: none
+
+  &.active
+    display: flex
+
+
+.slider__navigation
+  display: block
+
+.navigation__left, .navigation__right
+  width: 20px
+  height: 20px
+
+.navigation__left
+  background-color: #29ac33
+
+.navigation__right
+  background-color: #ac5929
+
+.navigation__satuts
+  display: block
+
+.slide-right__animation, 
+.slide-left__animation
+  transition: all ease-out .3s
+
+.slide-left__animation
+  animation: animation_right .3s
+
+.slide-right__animation
+  animation: animation_left .3s
+
+@keyframes animation_left
+  0%
+    margin-right: 0
+  100%
+    margin-right: 100%
+
+@keyframes animation_right
+  0%
+    margin-left: 0
+  100%
+    margin-left: 100%

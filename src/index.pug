@@ -1,10 +1,10 @@
 html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title pug index file
-    link(rel="stylesheet", href="./css/style.css")
+    link(rel="stylesheet" href="./css/style.css")
   body(style="height:200vh;") 
     //- Header
     include ./pug/_header.pug
@@ -12,10 +12,18 @@ html(lang="en")
 
     .container.text-container 
 
-      include ./components/Tabs/_tabs.pug
+      .sliders
+        include ./components/Slider/_slider.pug
+
+      //- Tabs
+      .tabs-list(style="display:flex;justify-content:space-between;align-items:center;")
+        include ./components/Tabs/_tabs.pug
+        include ./components/Tabs/_tabs.pug
 
       //- Accordion
-      include ./components/Accordion/_accordion.pug
+      .accordion-list(style="display:flex;justify-content:space-between;align-items:center;")
+        include ./components/Accordion/_accordion.pug
+        include ./components/Accordion/_accordion.pug
 
       section.text(style="margin-top: 30px;")
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
@@ -23,28 +31,28 @@ html(lang="en")
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
-        
+
       section.text(style="margin-top: 30px;")
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
-        
+
       section.text(style="margin-top: 30px;")
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
-        
+
       section.text(style="margin-top: 30px;")
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
         p.text__p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus est aut, qui enim suscipit sit cumque recusandae, temporibus incidunt vel unde reiciendis delectus, hic quidem illo impedit ut ex aliquam.
-        
+
 
   script 
     include ./components/Navbar/_navbar.js
@@ -54,4 +62,5 @@ html(lang="en")
     include ./components/Accordion/_accordion.js
   script
     include ./components/Tabs/_tabs.js
-    
+  script
+    include ./components/Slider/_slider.js
