@@ -1,0 +1,79 @@
+body
+  @media screen and ( max-width: $breakpoint768)
+    &.open-menu
+      overflow: hidden
+
+
+#hamburger-menu
+  display: none
+  @media screen and ( max-width: $breakpoint768)
+    position: relative
+    top: 0
+    left: 0
+    width: 40px
+    height: 40px
+    display: block
+    z-index: 10001
+
+  span, &:after, &:before
+    height: 3px
+    width: 100%
+    position: absolute
+    margin: 0 auto
+    background-color: #fff
+
+  span
+    top: 19px
+    transition: opacity .5s
+
+  &:after, &:before
+    content: ''
+    transition: transform,bottom .4s
+
+  &:after
+    top: 5px
+
+  &:before
+    bottom: 5px
+
+  &.open-menu span
+    opacity: 0
+    transition: opacity .5s
+
+  &.open-menu:before
+    transform: rotate(38deg)
+    transition: .4s
+    bottom: 18px
+
+  &.open-menu:after
+    transform: rotate(-38deg)
+    transition: .4s
+    top: 18px
+
+.menu__burger
+  display: flex
+  justify-content: flex-end
+  align-items: center
+
+  @media ( max-width: $breakpoint768)
+    display: none
+
+    &.open-menu
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      position: fixed
+      left: 0
+      top: 0
+      overflow: hidden
+      width: 100vw
+      height: 100vh
+      background-color: rgb(29, 29, 29)
+
+      .menu__item
+        margin-left: 0
+        padding: 10px 0
+
+.menu__item-link
+  text-decoration: none

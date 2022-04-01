@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title pug index file
+    link(rel="stylesheet" href="./css/style.css")
+  body 
+
+    .waves-effect.waves-light.btn button
+
+    .dropdown-trigger.btn(href="#" data-target='dropdown1') DROP ME!
+
+    ul#dropdown1.dropdown-content 
+      li 
+        span one 
+      li 
+        span two 
+      li.divider(tabindex="-1")
+      li 
+        span three 
+      li 
+        a 
+          i.material-icons cloud 
+          span four 
+
+    .chip
+      img(src="img/jpg/yuna.jpg", alt="one")
+      | One
+      
+  script
+    include ./libs/jquery/js/jquery.min.js
+  script
+    include ./libs/materialize/js/bin/materialize.min.js
+  script
+    include ./js/main.js
