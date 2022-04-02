@@ -1,0 +1,47 @@
+$nb_h: 50px
+$logo_fs: 1.8rem
+$item_fs: 1.2rem
+$item_gup: 50px
+
+  
+header
+  background-color: rgb(166, 255, 166)
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.514)
+  transition: top ease-out 0.3s
+
+.sticky
+  transition: top ease-out 0.3s
+  position: fixed
+  top: 0
+  width: 100%
+
+.navbar 
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: $nb_h
+
+  ul
+    text-decoration: none
+    list-style: none
+
+  a
+    text-decoration: none
+
+.navbar__logo 
+  font-size: $logo_fs
+
+.navbar__menu
+  display: flex
+  justify-content: flex-end
+  align-items: center
+
+.menu__item
+  margin-left: $item_gup
+  font-size: $item_fs
+
+  @media (max-width: $breakpoint768)
+    margin-left: 30px
+
+  &::last-child
+    margin-left: 0

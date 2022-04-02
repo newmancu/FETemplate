@@ -1,0 +1,56 @@
+@use 'sass:color'
+$tabNBColor: #2e1dc9
+
+.tabs
+  list-style: none
+  display: flex
+  flex-direction: column
+  justify-content: baseline
+  align-items: baseline
+  width: 300px
+
+.tab__navbar
+  list-style: none
+  display: flex
+  flex-flow: row
+  justify-content: baseline
+  align-items: baseline
+
+  h3
+    padding: 20px 10px
+    background-color: $tabNBColor
+    cursor: pointer
+    user-select: none
+
+  h3:hover
+    background-color: lighten($tabNBColor, 20%)
+
+  li.active
+    h3
+      background-color: darken($tabNBColor, 20%)
+
+
+.tab-content
+  display: none
+  overflow: hidden
+  width: 200px
+  height: 100px
+  animation: fadeEffect 1s
+
+  &.active
+    display: block
+
+  h3
+    color: $titleColor
+  
+.tabs__content
+
+  p
+    color: grey
+
+@keyframes fadeEffect
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+    
