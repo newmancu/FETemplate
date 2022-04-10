@@ -157,10 +157,19 @@ function watchImg() {
     gulp.watch('./src/img/**/*', compileImg)
 }
 
+function addFonts(next) {
+    gulp.src('./src/fonts/**/*')
+        .pipe(gulp.dest(path.join(CUR_ROOT, '/fonts')))
+    next()
+}
+function watchFonts() {
+    gulp.watch('./src/fonts/**/*', addFonts)
+}
+
 function makeBuild(next) {
     CUR_ROOT = RELEASE_ROOT
     gulp.series(
-        compileImg,layoutInclude,sassCompilerCompresed, compileJs
+        addFonts,compileImg,layoutInclude,sassCompilerCompresed, compileJs
         )()
     next()
 }
@@ -171,11 +180,13 @@ gulp.task('clean', () => {
 gulp.task('build', makeBuild)
 gulp.task('default', gulp.series(
     browInit,
+    addFonts,
     compileImg,
     layoutInclude,
     sassCompiler,
     compileJs,
     gulp.parallel(
+        watchFonts,
         watchImg,
         watchSass,
         watchLayoutInclude,
